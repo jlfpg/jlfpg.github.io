@@ -1,0 +1,147 @@
+body {
+	background-color:#d9d9d9;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;	
+}
+header  {
+	max-width: 100%; 
+	overflow:hidden; 
+	margin-bottom:20px;
+	height: auto;
+	background-image: url(../Images/wallpaper.jpg);	
+	
+}
+
+.wrapper {
+	
+	margin:auto; 
+	overflow:hidden; 
+		
+}
+ 
+header .logo {
+	color:white;
+	font-size:50px;
+	line-height:140px;
+	text-align: center;	
+}
+ 
+.footer{
+	overflow:hidden; 
+	color:white;
+	margin-left:1px;
+	margin-top: 20px;
+	height: auto;
+	background-image: url(../Images/wallpaper.jpg);
+}
+
+.container {
+  width: 500px;
+  margin:auto;
+  position: relative;
+  
+}
+.link{
+display:block;
+border-bottom: white 1px solid;
+margin-bottom: 10px;
+}
+.image {
+  display: block;
+  width: 500px;
+  height: 550px;
+}
+
+.overlay {
+  position:absolute;
+  bottom:0px;
+  top: 0px;
+  left: 0px;
+  height: 550px;
+  width: 500px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #595959;
+  text-decoration:none; 
+  
+}
+
+.container:hover .overlay {
+  opacity: 0.96;
+  display:inline-block;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-decoration:none; 
+  
+}
+a{text-decoration:none;
+	color: white;
+} 
+.arriba{
+	position: fixed; 
+	bottom: 10px; 
+	right: 2%;" 
+}
+#sidebar {
+	float: left;
+	width: 300px;
+	padding: 0px;
+	color: black;
+	position: fixed;
+}
+
+#sidebar ul {
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	margin-left: 40px;
+}
+
+#sidebar li ul {
+	margin-bottom: 30px;
+	padding: 0px 20px 20px 20px;
+	background: #595959;
+	border-left: 1px solid #D6E6CC;
+	border-right: 1px solid #D6E6CC;
+	border-bottom: 1px solid #D6E6CC;
+}
+
+#sidebar li li {
+	line-height: 35px;
+	border-bottom: 1px dashed #D1D1D1;
+	padding-left: 3px;
+}
+
+#sidebar h2 {
+	height: 38px;
+	padding: 12px 0 0 20px;
+	background: #1E1E1E;
+	letter-spacing: -.5px;
+	color: #FFFFFF;
+}
+
+#sidebar a:hover {
+	text-decoration: underline;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0;
+	color: #534616;
+}
+
+a {
+	color: white;
+}
+
