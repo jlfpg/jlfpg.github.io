@@ -1,28 +1,143 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 
-<head>    
-	<meta charset="utf-8" />       
-	<title>Git Hub</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css">
-	<script src ="js/javaScript.js"></script>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script src="js/javaScript.js"></script>
+
 </head>
+
 <body>
+    
+    <br>
+    <h1 id="xd">LA IRA</h1>
+    <div id="div1">
+      
+    <br>
+    <h2>Según la Rae la ira puede definirse como:</h2>
+    <br>
+    <h2>1. f. Sentimiento de indignación que causa enojo.</h2>
+        <h2>2. f. Apetito o deseo de venganza.</h2>
+            <h2>3. f. Furia o violencia de los elementos de la naturaleza.</h2>
+                <h2>4. f. pl. Repetición de actos de saña, encono o venganza.</h2>
 
-	<header>
-		<div class="logo">Mis trabajos</div>	
-	</header>
+        <br>
+        <h2>Aunque eso no significa que todas las personas tengan por definición de ira una de esas cuatro.</h2>
+            <h2>Para algunas personas la ira puede ser el hecho de que se hinche un vena, ponerse rojo, que "hechen humo" o la violencia.</h2>
+                <h2>Pero no para todos es lo mismo, asi que observa esta galeria donde podrás ver distintas definiciones artisticas dependiendo de cada autor.</h2>
+           
+        <br><br><br><br>
+        <button onclick="comenzar()">Ver Galeria</button>
+    </div>
+    <br><br>
+   
 
-	<div class="wrapper" id="idCreate">
-		<!--JSON-->
-	</div>
-	
-	<div class = "arriba">
-		<a href="#"><img src="Images/arriba.png" title="Ir arriba" /></a>
-	</div>
-	
-	<!----- <footer class="footer"> 
-		<p></p>
-	</footer> --->	
-	
+    
+    <div id="div2" class="slideshow-container cartas">
+
+        <div class="container">
+            <div class="mySlides fade">
+              <img src="images/1.jpg" style="width:100%">
+              <div class="texto">Francisco de Goya - Saturno devorando a su hijo</div>
+              <div class="overlay">
+                <div class="text1">El acto de comerse a su hijo se ha visto, desde el punto de vista del psicoanálisis, como una figuración de la impotencia sexual que causa ira en Saturno.</div>
+              </div>
+            </div>
+        </div>
+
+            <div class="container">
+                <div class="mySlides fade">
+                  <img src="images/2.jpg" style="width:100%">
+                  <div class="texto">Elisabetta Sirani - Timoclea</div>
+                  <div class="overlay">
+                    <div class="text1">Unos soldados tracios asaltaron la casa donde vivía Timoclea, una de las mujeres principales de la ciudad. 
+                        Mientras varios soldados saqueaban sus bienes, el comandante la violó y después le preguntó si tenía oro y plata escondidos en alguna parte. 
+                        Timoclea dijo que había escondido sus bienes más preciados en un pozo que había en su jardín. Cuando el comandante tracio se asomó al pozo para comprobarlo, 
+                        Timoclea lo empujó dentro y a continuación le lanzó piedras hasta matarlo. Este cuadro refleja la ira de Timoclea.</div>
+                  </div>
+                </div>
+            </div>
+    
+
+                <div class="container">
+                    <div class="mySlides fade">
+                      <img src="images/3.jpg" style="width:100%">
+                      <div class="texto">Jean-Léon Gérome - La verdad que sale del pozo</div>
+                      <div class="overlay">
+                        <div class="text1">La verdad, iracunda, sale a castigar con su látigo a la humanidad por sus crímenes.</div>
+                      </div>
+                    </div>
+                </div>
+
+                    <div class="container">
+                        <div class="mySlides fade">
+                          <img src="images/4.jpg" style="width:100%">
+                          <div class="texto">Oswaldo Guayasamin - Edad de la Ira</div>
+                          <div class="overlay">
+                            <div class="text1">Representacion de la ira por las injusticias que se suscitaron en diferentes momentos históricos en los pueblos ancestrales de América.</div>
+                          </div>
+                        </div>
+                    </div>
+
+                        
+                    <div class="container">
+                        <div class="mySlides fade">
+                          <img src="images/5.jpg" style="width:100%">
+                          <div class="texto">Miguel Ángel - El ombligo de Adán</div>
+                          <div class="overlay">
+                            <div class="text1">Ira de dios expulsando a Adán y Eva tras comer la manzana prohibida.</div>
+                          </div>
+                        </div>
+                    </div>
+                          
+                    <div class="container">
+                        <div class="mySlides fade">
+                          <img src="images/6.jpg" style="width:100%">
+                          <div class="texto">Katsuhiro Otomo - Ira de la humanidad</div>
+                          <div class="overlay">
+                            <div class="text1">Representación de los resultados tras una guerra nuclear provocada por la ira de los humanos.</div>
+                          </div>
+                        </div>
+                    </div>
+</div>
+
+<div id="div3" class="carta">
+    <a class="prev left" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next invi" onclick="plusSlides(1)">&#10095;</a>
+    
+
+</div>
+
+
+
+    
+    <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+     
+      slides[slideIndex-1].style.display = "block";  
+    }
+    </script>
 </body>
+
+</html>

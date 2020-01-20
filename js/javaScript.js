@@ -1,96 +1,243 @@
-var xmlhttp = new XMLHttpRequest();
-var url = "json/info.json";
+//Variables globales
+var nl00 = 0;
+var nl01 = 0;
+var nl10 = 0;
+var nl11 = 0;
+var nRondas = 0;
+var dif = 0;
+var nrand = 0;
+var ul = 2;
+var pu = 0;
+var pm = 0;
+var ulc0 = 2;
+var ulc1 = 2;
+var myAudio  = new Audio('music/ira.mp3');
+var md = new Audio('sounds/derrota.mp3');
+var me = new Audio('sounds/empate.mp3');
 
-xmlhttp.onreadystatechange = function () {
-	
-    if (this.readyState == 4 && this.status == 200) {
-        var myArr = JSON.parse(this.responseText);
-        mostrarContenido(myArr);
-	}
-};
+//Funciones 
+function musica() {
 
-xmlhttp.open("GET", url, true);
-xmlhttp.send();
+}
 
+function comenzar() {
+    myAudio.addEventListener('ended', function() {
+        this.currentTime = 0;
+        this.play();
+    }, false);
+    myAudio.play();
+    myAudio.volume = 0.1;
 
-function mostrarContenido(arr){
-	
-	var id = document.getElementById("idCreate");
-	 for (i = 0; i < arr.length; i++) {
-		
-		//Primer div contenedor
-		var firstDiv = document.createElement("div");
-		firstDiv.className = 'container';
-		firstDiv.setAttribute('id', arr[i].Titulo);
-		
-		//imagen de dentro del Div
-		var ImageDiv = document.createElement("img");
-		ImageDiv.setAttribute('src', arr[i].img);
-		ImageDiv.setAttribute('alt',"img");
-		ImageDiv.className = 'image';
-		
-		//Overlay que almacena el texto y el enlace
-		var Over = document.createElement("div");
-		Over.className = 'overlay';
-		
-		//Div llamado text
-		var Text = document.createElement("div");
-		Text.className = 'text';
-		
-		//Informacion dentro del text(creamos una lista)
-		var Lista = document.createElement("ul");
-		var Elemento1 = document.createElement("li");
-		var Elemento2 = document.createElement("li");
-		var Elemento3 = document.createElement("li");
-		var Elemento4 = document.createElement("li");
-		var Elemento5 = document.createElement("li");
-		var Elemento6 = document.createElement("li");
-		var Elemento7 = document.createElement("li");
-		var Elemento8 = document.createElement("li");
-		var Contenido = document.createTextNode("Fecha: " + arr[i].Fecha);
-		Elemento1.appendChild(Contenido);
-		var Contenido = document.createTextNode("Descripcion: " + arr[i].Descripcion);
-		Elemento2.appendChild(Contenido);
-		var Contenido = document.createTextNode("Miembros del grupo: " + arr[i].Miembros);
-		Elemento3.appendChild(Contenido);
-		var Contenido = document.createTextNode("Asignaturas: " + arr[i].Asignaturas);
-		Elemento4.appendChild(Contenido);
-		var Contenido = document.createTextNode("Disponible: " + arr[i].Disponible);
-		Elemento5.appendChild(Contenido);
-		var Contenido = document.createTextNode("Destacado: " + arr[i].Destacado);
-		Elemento6.appendChild(Contenido);
-		var Contenido = document.createTextNode("Responsive: " + arr[i].Responsive);
-		Elemento7.appendChild(Contenido);
-		var Contenido = document.createTextNode("Visualización recomendada: " + arr[i].Visualizacion);
-		Elemento8.appendChild(Contenido);
-		
-		
-		//Texto del enlace
-		var TextA =  document.createTextNode(arr[i].Titulo);
-		
-		//Y el enlace
-		var Enlace = document.createElement("a");
-		Enlace.setAttribute("href", arr[i].Link);
-		Enlace.setAttribute("target", "blank");
-		Enlace.className = 'link';
-		
-		//Enlace.createTextNode(arr[i].Titulo);
-		
-		//Creamos los nodos para que los elementos aparezcan
-		id.appendChild(firstDiv);
-		firstDiv.appendChild(ImageDiv);
-		firstDiv.appendChild(Over);
-		Over.appendChild(Text);
-		Text.appendChild(Enlace);
-		Enlace.appendChild(TextA);
-		Text.appendChild(Elemento1);
-		Text.appendChild(Elemento2);
-		Text.appendChild(Elemento3);
-		Text.appendChild(Elemento4);
-		Text.appendChild(Elemento5);
-		Text.appendChild(Elemento6);
-		Text.appendChild(Elemento7);
-		Text.appendChild(Elemento8);
-	
-	}
+    $("#div1").fadeOut();
+    $("#tit").fadeOut();
+    $("#titu").fadeIn();
+    $("#div2").fadeIn();
+    $("#div3").fadeIn();
+
+    nRondas = document.getElementById('nRondas').value;
+    dif = document.getElementById("dif").value;
+    rand();
+}
+
+function rand() {
+    nrand = Math.floor(Math.random() * 2);
+}
+
+function clickCero() {
+    if (dif == 0) {
+        if (ul == 2) {
+            if (nrand == 0) {
+                pm++;
+            } else {
+                pu++;
+            }
+        } else {
+            if (ul == 0) {
+                nl00++;
+            } else if (ul == 1) {
+                nl01++;
+            }
+            if (nrand == 0) {
+                pm++;
+            } else {
+                pu++;
+            }
+        }
+    } else {
+        if (ul == 2) {
+            if (nrand == 0) {
+                pm++;
+            } else {
+                pu++;
+            }
+        } else {
+            if (ul == 0) {
+                nl00++;
+            } else if (ul == 1) {
+                nl01++;
+            }
+            if (nrand == 0) {
+                pm++;
+            } else {
+                pu++;
+            }
+        }
+
+    }
+    ulc0--;
+    nRondas--;
+    gameOver();
+}
+
+function clickUno() {
+    if (dif == 0) {
+        if (ul == 2) {
+            if (nrand == 1) {
+                pm++;
+            } else {
+                pu++;
+            }
+        } else {
+            if (ul == 0) {
+                nl10++;
+            } else if (ul == 1) {
+                nl11++;
+            }
+            if (nrand == 1) {
+                pm++;
+            } else {
+                pu++;
+            }
+        }
+    } else {
+        if (ul == 2) {
+            if (nrand == 1) {
+                pm++;
+            } else {
+                pu++;
+            }
+        } else {
+            if (ul == 0) {
+                nl10++;
+            } else if (ul == 1) {
+                nl11++;
+            }
+            if (nrand == 1) {
+                pm++;
+            } else {
+                pu++;
+            }
+        }
+    }
+    ulc1--;
+    nRondas--;
+    gameOver();
+}
+
+function gameOver() {
+    document.getElementById('pj').innerHTML = pu;
+    document.getElementById('pm').innerHTML = pm;
+    document.getElementById('rr').innerHTML = nRondas;
+    $("#res").fadeIn();
+    if (pu > pm) {
+        $("#vu").fadeIn();
+    } else {
+        $("#vm").fadeIn();
+    }
+    $("#titu").fadeOut();
+    $("#div2").fadeOut();
+    $("#div3").fadeOut();
+    $("#result").fadeIn();
+    $("#resultR").fadeIn();
+    $("#rr").fadeIn();
+    if (nRondas == 0) {
+        setTimeout(function() {
+            $("#result").fadeIn();
+            $("#rf").fadeIn();
+            if (pu > pm) {
+                $("#vm").fadeOut();
+                $("#vu").fadeIn();
+                mv.play();
+            } else if (pu < pm) {
+                $("#vu").fadeOut();
+                $("#vm").fadeIn();
+                md.play();
+            } else {
+                $("#vm").fadeOut();
+                $("#vu").fadeOut();
+                $("#em").fadeIn();
+                me.play();
+            }
+            $("#result").fadeIn();
+            $("#res").fadeOut();
+            $("#resultR").fadeOut();
+            $("#rr").fadeIn();
+            $("#btnsEnd").fadeIn();
+
+        }, 4000);
+    } else {
+        decision();
+        esperar();
+    }
+}
+
+function esperar() {
+    setTimeout(function() {
+        $("#result").fadeOut();
+        $("#res").fadeOut();
+        $("#vu").fadeOut();
+        $("#vm").fadeOut();
+        $("#resultR").fadeOut();
+        $("#rr").fadeOut();
+        $("#titu").fadeIn();
+        $("#div2").fadeIn();
+        $("#div3").fadeIn();
+    }, 5000);
+}
+
+function decision() {
+    if (dif == 0) {
+
+    } else {
+        if (ul == 0) {
+            if (nl10 > nl00) {
+                nrand = 1;
+            } else if (nl10 < nl00) {
+                nrand = 0;
+            } else {
+                rand();
+            }
+        } else if (ul == 1) {
+            if (nl11 > nl01) {
+                nrand = 1;
+            } else if (nl10 < nl00) {
+                nrand = 0;
+            } else {
+                rand();
+            }
+        }
+    }
+    ulcamb();
+}
+
+function ulcamb() {
+    if (ulc0 == 1) {
+        ul = 0;
+        ulc0++;
+
+    } else if (ulc1 == 1) {
+        ul = 1;
+        ulc1++;
+    }
+    if (dif == 0) {
+        rand();
+    }
+}
+
+function again() {
+    window.location.reload();
+}
+
+function clos() {
+    window.location = "http://www.google.es/";
 }
